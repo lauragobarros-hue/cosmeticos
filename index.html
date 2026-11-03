@@ -107,7 +107,21 @@ function renderizar(filtro="todos"){
   });
 }
 document.querySelectorAll(".filter").forEach(b=>b.addEventListener("click",()=>{document.querySelectorAll(".filter").forEach(x=>x.classList.remove("active"));b.classList.add("active");renderizar(b.dataset.filter)}));
-function mostrarCarrinho(){
+<section id="carrinho">
+  <section class="carrinho">
+    <h2>🛍️ Meu Carrinho</h2>
+
+    <div id="itens-carrinho"></div>
+
+    <h3>Total: <span id="total">R$ 0,00</span></h3>
+
+    <button onclick="esvaziarCarrinho()">
+        Esvaziar carrinho
+    </button>
+</section>
+
+<script src="carrinho.js"></script>
+  function mostrarCarrinho(){
  if(!carrinho.length){alert("Seu carrinho ainda está vazio. Escolha um produto para começar!");return;}
  const itens=carrinho.map(p=>p.nome+" — "+dinheiro(p.preco)).join("\\n");
  const total=carrinho.reduce((s,p)=>s+p.preco,0);
