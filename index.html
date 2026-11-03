@@ -617,3 +617,151 @@ document.getElementById("search")
 
 document.getElementById("category")
   .addEventListener("change", renderProducts);
+
+  document.getElementById("message").textContent = "";
+  renderCart();
+}
+
+function changeQuantity(id, amount) {
+  if (!cart[id]) return;
+  cart[id] += amount;
+  if (cart[id] <= 0) delete cart[id];
+  renderCart();
+}
+
+function removeItem(id) {
+  delete cart[id];
+  renderCart();
+}
+
+function renderCart() {
+  const container = document.getElementById("cart-items");
+  const entries = Object.entries(cart);
+  let quantityTotal = 0;
+  let priceTotal = 0;
+
+  if (entries.length === 0) {
+    container.innerHTML =
+      '<p class="empty">Seu carrinho está vazio.</p>';
+  } else {
+    container.innerHTML = entries.map(([id, quantity]) => {
+      const p = products.find(item => item.id === Number(id));
+      quantityTotal += quantity;
+      priceTotal += p.price * quantity;
+
+      return `
+        <div class="cart-item">
+          <div class="cart-product">
+            <img src="${p.image}" alt="${p.name}" loading="lazy">
+            <div class="cart-product-info">
+              <strong>${p.name}</strong>
+              <small>${money(p.price)} por unidade</small>
+              <strong>${money(p.price * quantity)}</strong>
+            </div>
+          </div>
+          <div class="quantity">
+            <button onclick="changeQuantity(${p.id},-1)"
+              aria-label="Diminuir quantidade">−</button>
+            <span>${quantity}</span>
+
+  document.getElementById("message").textContent = "";
+  renderCart();
+}
+
+function changeQuantity(id, amount) {
+  if (!cart[id]) return;
+  cart[id] += amount;
+  if (cart[id] <= 0) delete cart[id];
+  renderCart();
+}
+
+function removeItem(id) {
+  delete cart[id];
+  renderCart();
+}
+
+function renderCart() {
+  const container = document.getElementById("cart-items");
+  const entries = Object.entries(cart);
+  let quantityTotal = 0;
+  let priceTotal = 0;
+
+  if (entries.length === 0) {
+    container.innerHTML =
+      '<p class="empty">Seu carrinho está vazio.</p>';
+  } else {
+    container.innerHTML = entries.map(([id, quantity]) => {
+      const p = products.find(item => item.id === Number(id));
+      quantityTotal += quantity;
+      priceTotal += p.price * quantity;
+
+      return `
+        <div class="cart-item">
+          <div class="cart-product">
+            <img src="${p.image}" alt="${p.name}" loading="lazy">
+            <div class="cart-product-info">
+              <strong>${p.name}</strong>
+              <small>${money(p.price)} por unidade</small>
+              <strong>${money(p.price * quantity)}</strong>
+            </div>
+          </div>
+          <div class="quantity">
+            <button onclick="changeQuantity(${p.id},-1)"
+              aria-label="Diminuir quantidade">−</button>
+            <span>${quantity}</span>
+
+            <button onclick="changeQuantity(${p.id},1)"
+              aria-label="Aumentar quantidade">+</button>
+          </div>
+          <button class="remove" onclick="removeItem(${p.id})" aria-label="Tirar ${p.name} do carrinho">
+            🗑 Tirar do carrinho
+          </button>
+        </div>
+      `;
+    }).join("");
+  }
+
+  document.getElementById("count").textContent = quantityTotal;
+  document.getElementById("total").textContent = money(priceTotal);
+}
+
+function irCarrinho() {
+  document.getElementById("carrinho").scrollIntoView({
+    behavior: "smooth"
+  });
+}
+
+function revisarPedido() {
+  const entries = Object.entries(cart);
+  const message = document.getElementById("message");
+
+  if (!entries.length) {
+    message.textContent = "Adicione um produto antes de continuar.";
+    return;
+  }
+
+  const total = entries.reduce((sum, [id, qty]) => {
+    const p = products.find(item => item.id === Number(id));
+    return sum + p.price * qty;
+  }, 0);
+
+  message.textContent =
+    "Demonstração: subtotal de " + money(total) +
+    ". Nenhum pedido real foi enviado.";
+}
+
+document.getElementById("search")
+  .addEventListener("input", renderProducts);
+
+document.getElementById("category")
+  .addEventListener("change", renderProducts);
+
+document.getElementById("year").textContent =
+  new Date().getFullYear();
+
+renderProducts();
+renderCart();
+</script>
+
+</body>
+</html>
