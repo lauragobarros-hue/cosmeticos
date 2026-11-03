@@ -1,134 +1,619 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="MALJI COSMETIC — Sua beleza, nosso cuidado! Skincare e maquiagem para sua rotina.">
-  <title>MALJI COSMETIC | Sua beleza, nosso cuidado!</title>
-  <style>
-    :root{--pink:#f7c8d4;--rose:#b94d68;--deep:#70263c;--cream:#fff8f7;--ink:#39252b;--gold:#c49a58}
-    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--ink);background:var(--cream)}
-    header{background:#fff7f7;border-bottom:1px solid #f0d5dc;position:sticky;top:0;z-index:5}
-    .nav{max-width:1180px;margin:auto;padding:15px 22px;display:flex;align-items:center;justify-content:space-between;gap:16px}
-    .logo{font-family:Georgia,serif;font-size:1.45rem;letter-spacing:3px;color:var(--deep);font-weight:bold}.logo small{display:block;font-family:Arial,sans-serif;font-size:.65rem;letter-spacing:6px;text-align:center}
-    nav{display:flex;gap:20px;align-items:center;flex-wrap:wrap}nav a{color:var(--deep);text-decoration:none;font-weight:bold;font-size:.92rem}
-    .cart{border:0;border-radius:30px;background:var(--deep);color:white;padding:11px 16px;cursor:pointer}
-    .hero{min-height:410px;padding:70px 22px;display:grid;place-items:center;text-align:center;background:radial-gradient(circle at 15% 20%,#fff 0 4%,transparent 5%),radial-gradient(circle at 90% 70%,#fff 0 5%,transparent 6%),linear-gradient(135deg,#fbe4e8,#f4bdcc 55%,#fff0ed);position:relative;overflow:hidden}
-    .hero:before,.hero:after{content:"✿";position:absolute;font-size:120px;color:#b94d6825}.hero:before{left:4%;top:10%}.hero:after{right:4%;bottom:2%}
-    .hero-inner{max-width:760px;position:relative}.eyebrow{text-transform:uppercase;letter-spacing:4px;color:var(--rose);font-size:.8rem;font-weight:bold}
-    h1{font-family:Georgia,serif;font-size:clamp(2.5rem,7vw,5rem);letter-spacing:4px;color:var(--deep);margin:12px 0}
-    .slogan{font-family:Georgia,serif;font-style:italic;font-size:clamp(1.25rem,3vw,1.8rem);color:#873b50;margin:0 0 18px}
-    .hero p{line-height:1.7;max-width:600px;margin:0 auto 25px}.btn{display:inline-block;background:var(--deep);color:white;text-decoration:none;border:0;border-radius:30px;padding:13px 22px;font-weight:bold;cursor:pointer}
-    section{max-width:1180px;margin:auto;padding:55px 22px}.section-head{text-align:center;margin-bottom:28px}.section-head h2{font-family:Georgia,serif;color:var(--deep);font-size:2.2rem;margin:0 0 9px}.section-head p{color:#795d65}
-    .filters{display:flex;gap:9px;justify-content:center;flex-wrap:wrap;margin-bottom:28px}.filter{border:1px solid #e4b5c2;background:#fff;color:var(--deep);padding:9px 15px;border-radius:24px;cursor:pointer}.filter.active{background:var(--deep);color:white}
-    .products{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}.card{background:#fff;border:1px solid #f0dce1;border-radius:17px;overflow:hidden;box-shadow:0 5px 18px #70263c0b;display:flex;flex-direction:column}.card img{width:100%;aspect-ratio:4/4.2;object-fit:cover;background:#f8e8ec}.card-body{padding:15px;display:flex;flex-direction:column;gap:9px;flex:1}.tag{font-size:.72rem;color:var(--rose);text-transform:uppercase;letter-spacing:1px;font-weight:bold}.card h3{margin:0;font-size:1.05rem}.card p{margin:0;color:#806a70;font-size:.88rem;line-height:1.45}.price{font-size:1.15rem;font-weight:bold;color:var(--deep);margin-top:auto;padding-top:5px}.add{width:100%;border:0;background:#f3d4dc;color:var(--deep);border-radius:9px;padding:11px;font-weight:bold;cursor:pointer}.add:hover{background:var(--pink)}
-    .promise{background:#f9e4e8;text-align:center;padding:35px 20px}.promise strong{color:var(--deep)}footer{background:#542133;color:#fff1f4;text-align:center;padding:30px 20px}footer .logo{color:white}footer p{margin:8px 0;font-size:.9rem}
-    .notice{font-size:.8rem;color:#806a70;text-align:center;margin-top:24px}
-    @media(max-width:900px){.products{grid-template-columns:repeat(3,minmax(0,1fr))}nav{gap:12px}}
-    @media(max-width:620px){.nav{flex-wrap:wrap}.logo{font-size:1.2rem}nav{order:3;width:100%;justify-content:center}.products{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}section{padding:38px 14px}.card-body{padding:12px}.hero{padding:55px 18px}}
-    @media(max-width:360px){.products{grid-template-columns:1fr}}
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MALJI COSMETIC | Beleza e autocuidado</title>
+<meta name="description" content="Conheça os produtos de beleza da MALJI COSMETIC.">
+
+<style>
+:root {
+  --pink: #d96f91;
+  --dark: #a94064;
+  --light: #fff0f4;
+  --cream: #fffaf7;
+  --text: #392a30;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: var(--cream);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+button, input, select {
+  font: inherit;
+}
+
+button, a {
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.topbar {
+  background: var(--dark);
+  color: white;
+  text-align: center;
+  padding: 8px;
+  font-size: 13px;
+}
+
+header {
+  background: white;
+  padding: 18px 6%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+  border-bottom: 1px solid #f0dce3;
+}
+
+.logo {
+  color: var(--dark);
+  font-weight: bold;
+  font-size: 25px;
+  letter-spacing: 2px;
+}
+
+.logo small {
+  display: block;
+  text-align: center;
+  letter-spacing: 5px;
+  font-size: 10px;
+}
+
+nav {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  font-size: 14px;
+}
+
+nav a:hover {
+  color: var(--pink);
+}
+
+.primary, .cart-button {
+  background: var(--pink);
+  color: white;
+  border: none;
+  border-radius: 25px;
+  padding: 11px 20px;
+  font-weight: bold;
+  display: inline-block;
+}
+
+.primary:hover, .cart-button:hover {
+  background: var(--dark);
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: var(--light);
+  align-items: center;
+}
+
+.hero-content {
+  padding: 50px 10%;
+}
+
+.eyebrow {
+  color: var(--dark);
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+h1 {
+  font-family: Georgia, serif;
+  font-size: clamp(35px, 4vw, 54px);
+  line-height: 1.15;
+  margin: 18px 0;
+}
+
+.hero-content p {
+  color: #796c72;
+  margin-bottom: 25px;
+}
+
+.hero img {
+  width: 100%;
+  height: 410px;
+  object-fit: cover;
+}
+
+section {
+  padding: 55px 6%;
+}
+
+.heading {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.heading h2 {
+  font-family: Georgia, serif;
+  font-size: 32px;
+  margin: 8px 0;
+}
+
+.heading p {
+  color: #796c72;
+  font-size: 14px;
+}
+
+.benefits {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.benefit {
+  background: white;
+  border: 1px solid #f1e2e6;
+  border-radius: 12px;
+  padding: 22px;
+  text-align: center;
+}
+
+.benefit p {
+  font-size: 13px;
+  color: #796c72;
+}
+
+.catalog {
+  background: white;
+}
+
+.toolbar {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+}
+
+.toolbar input, .toolbar select {
+  padding: 12px;
+  border: 1px solid #e7cfd8;
+  border-radius: 8px;
+  min-width: 220px;
+  background: white;
+}
+
+.products {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.product {
+  background: white;
+  border: 1px solid #f0e4e8;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform .2s, box-shadow .2s;
+}
+
+.product:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px #6e344414;
+}
+
+.product img {
+  display: block;
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  object-position: center;
+  background: var(--light);
+}
+
+.product-info {
+  padding: 15px;
+}
+
+.category {
+  color: var(--dark);
+  font-size: 10px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.product h3 {
+  font-size: 16px;
+  margin: 5px 0;
+}
+
+.description {
+  color: #796c72;
+  font-size: 12px;
+  min-height: 38px;
+}
+
+.price {
+  font-weight: bold;
+  font-size: 19px;
+  margin: 12px 0;
+}
+
+.add {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #efcad6;
+  border-radius: 7px;
+  background: var(--light);
+  color: var(--dark);
+  font-weight: bold;
+}
+
+.add:hover {
+  background: var(--pink);
+  color: white;
+}
+
+.empty {
+  text-align: center;
+  padding: 25px;
+  color: #796c72;
+  grid-column: 1 / -1;
+}
+
+.cart-section {
+  background: var(--light);
+}
+
+.cart-box {
+  max-width: 800px;
+  margin: auto;
+  padding: 25px;
+  background: white;
+  border-radius: 12px;
+}
+
+.cart-product { display:flex; align-items:center; gap:12px; flex:1 1 230px; min-width:0; }
+.cart-product img { width:82px; height:82px; object-fit:cover; border-radius:12px; border:1px solid #f0dce3; background:var(--light); }
+.cart-product-info { min-width:0; }
+.cart-product-info strong { display:block; }
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 15px;
+  padding: 15px 0;
+  border-bottom: 1px solid #f0e4e8;
+}
+
+.cart-item small {
+  color: #796c72;
+}
+
+.quantity {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.quantity button, .remove {
+  border: 1px solid #edced8;
+  border-radius: 6px;
+  background: white;
+  color: var(--dark);
+  padding: 7px 11px;
+  cursor: pointer;
+}
+
+.remove {
+  background: #fff0f4;
+  border-color: #d96f91;
+  font-weight: bold;
+}
+
+.remove:hover {
+  background: #a94064;
+  color: white;
+}
+
+.total {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  font-size: 20px;
+  font-weight: bold;
+  margin: 24px 0;
+}
+
+.note {
+  color: #796c72;
+  font-size: 12px;
+  margin-top: 12px;
+}
+
+.about {
+  max-width: 750px;
+  margin: auto;
+  text-align: center;
+}
+
+.about p {
+  margin-top: 12px;
+  color: #796c72;
+}
+
+footer {
+  text-align: center;
+  padding: 30px;
+  background: #392a30;
+  color: white;
+  font-size: 13px;
+}
+
+footer p {
+  margin-top: 8px;
+  color: #e8cbd5;
+}
+
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr;
+  }
+
+  .hero img {
+    height: 300px;
+  }
+
+  .products {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 520px) {
+  header {
+    justify-content: center;
+  }
+
+  nav {
+    justify-content: center;
+  }
+
+  .benefits {
+    grid-template-columns: 1fr;
+  }
+
+  .products {
+    gap: 12px;
+  }
+
+  .product img {
+    height: 155px;
+  }
+
+  .product-info {
+    padding: 10px;
+  }
+
+  section {
+    padding: 38px 5%;
+  }
+}
+</style>
 </head>
+
 <body>
+
+<div class="topbar">
+  MALJI COSMETIC — sua beleza, seu momento!
+</div>
+
 <header>
-  <div class="nav">
-    <a class="logo" href="#inicio" style="text-decoration:none">MALJI<small>COSMETIC</small></a>
-    <nav aria-label="Menu principal"><a href="#inicio">Início</a><a href="#produtos">Produtos</a><a href="#sobre">Sobre a loja</a></nav>
-    <button class="cart" onclick="mostrarCarrinho()" aria-label="Ver carrinho">🛍️ Carrinho (<span id="cart-count">0</span>)</button>
-  </div>
+  <a href="#inicio" class="logo">
+    MALJI
+    <small>COSMETIC</small>
+  </a>
+
+  <nav aria-label="Menu principal">
+    <a href="#inicio">Início</a>
+    <a href="#produtos">Produtos</a>
+    <a href="#sobre">Sobre nós</a>
+    <a href="#carrinho">Carrinho</a>
+  </nav>
+
+  <button class="cart-button" onclick="irCarrinho()">
+    🛍 Carrinho (<span id="count">0</span>)
+  </button>
 </header>
+
 <main>
-  <section class="hero" id="inicio" style="max-width:none">
-    <div class="hero-inner">
-      <div class="eyebrow">Beleza em cada detalhe</div>
-      <h1>MALJI COSMETIC</h1>
-      <p class="slogan">Sua beleza, nosso cuidado!</p>
-      <p>Encontre seus favoritos de skincare e maquiagem e transforme sua rotina de autocuidado em um momento especial.</p>
-      <a class="btn" href="#produtos">Explorar produtos</a>
+  <section class="hero" id="inicio">
+    <div class="hero-content">
+      <span class="eyebrow">Beleza • Cuidado • Confiança</span>
+      <h1>Realce sua beleza, cuide de você.</h1>
+      <p>
+        Descubra maquiagem e produtos para sua rotina de skincare.
+        Seu momento de autocuidado começa aqui.
+      </p>
+      <a href="#produtos" class="primary">Explorar produtos</a>
+    </div>
+
+    <img
+      src="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?auto=format&fit=crop&w=1000&q=85"
+      alt="Produtos de beleza e cuidados com a pele"
+    >
+  </section>
+
+  <section>
+    <div class="benefits">
+      <div class="benefit">
+        <h3>🌷 Beleza para você</h3>
+        <p>Produtos para sua rotina de autocuidado.</p>
+      </div>
+      <div class="benefit">
+        <h3>💗 Fácil de encontrar</h3>
+        <p>Pesquise e filtre seus cosméticos favoritos.</p>
+      </div>
+      <div class="benefit">
+        <h3>✨ Compra organizada</h3>
+        <p>Adicione produtos e calcule o subtotal.</p>
+      </div>
     </div>
   </section>
-  <section id="produtos">
-    <div class="section-head"><h2>Nossos produtos</h2><p>Escolha seus favoritos para sua rotina de beleza 🌷</p></div>
-    <div class="filters">
-      <button class="filter active" data-filter="todos">Todos</button>
-      <button class="filter" data-filter="skincare">Skincare</button>
-      <button class="filter" data-filter="maquiagem">Maquiagem</button>
-      <button class="filter" data-filter="unhas">Unhas</button>
-      <button class="filter" data-filter="acessorios">Acessórios</button>
+
+  <section class="catalog" id="produtos">
+    <div class="heading">
+      <span class="eyebrow">Nossa seleção</span>
+      <h2>Produtos em destaque</h2>
+      <p>Encontre seus favoritos para sua rotina de beleza.</p>
     </div>
-    <div class="products" id="product-grid"></div>
-    <p class="notice">Imagens ilustrativas. Os preços são exemplos e podem ser alterados no código antes de publicar a loja.</p>
+
+    <div class="toolbar">
+      <input
+        id="search"
+        type="search"
+        placeholder="Buscar produto..."
+        aria-label="Buscar produto"
+      >
+
+      <select id="category" aria-label="Filtrar categoria">
+        <option value="todos">Todas as categorias</option>
+        <option value="skincare">Skincare</option>
+        <option value="maquiagem">Maquiagem</option>
+        <option value="acessorios">Acessórios</option>
+      </select>
+    </div>
+
+    <div class="products" id="products"></div>
   </section>
-  <div class="promise" id="sobre"><strong>🌸 MALJI COSMETIC — Sua beleza, nosso cuidado! 🌸</strong><p>Um carinho especial para sua rotina de beleza.</p></div>
+
+  <section class="cart-section" id="carrinho">
+    <div class="heading">
+      <span class="eyebrow">Seus favoritos</span>
+      <h2>Carrinho de compras</h2>
+      <p>Confira os produtos que você selecionou.</p>
+    </div>
+
+    <div class="cart-box">
+      <div id="cart-items">
+        <p class="empty">Seu carrinho está vazio.</p>
+      </div>
+
+      <div class="total">
+        <span>Subtotal</span>
+        <span id="total">R$ 0,00</span>
+      </div>
+
+      <button class="primary" onclick="revisarPedido()">
+        Revisar pedido
+      </button>
+
+      <p class="note">
+        Protótipo demonstrativo. Não processa pagamentos reais.
+      </p>
+      <p id="message" role="status" aria-live="polite"></p>
+    </div>
+  </section>
+
+  <section id="sobre">
+    <div class="about">
+      <span class="eyebrow">Quem somos</span>
+      <h2>Sobre a MALJI COSMETIC</h2>
+      <p>
+        Nossa proposta é oferecer uma experiência simples e organizada
+        para conhecer produtos de beleza, maquiagem e cuidados com a pele.
+        Este projeto apresenta a primeira versão da loja virtual.
+      </p>
+    </div>
+  </section>
 </main>
+
 <footer>
-  <div class="logo">MALJI <small>COSMETIC</small></div>
-  <p>Sua beleza, nosso cuidado!</p>
-  <p>© <span id="year"></span> MALJI COSMETIC. Todos os direitos reservados.</p>
+  <strong>MALJI COSMETIC</strong>
+  <p>Beleza e autocuidado em um só lugar.</p>
+  <p>Protótipo acadêmico — versão inicial.</p>
+  <p>© <span id="year"></span> MALJI COSMETIC</p>
 </footer>
+
 <script>
-const produtos = [
- {nome:"Gel de limpeza facial",cat:"skincare",preco:29.90,desc:"Para começar sua rotina de cuidados.",busca:"pink facial cleanser pump bottle cosmetic product photography"},
- {nome:"Esfoliante facial",cat:"skincare",preco:25.90,desc:"Um passo extra na rotina de skincare.",busca:"pink facial exfoliating scrub tube cosmetic product"},
- {nome:"Hidratante facial",cat:"skincare",preco:34.90,desc:"Cuidado hidratante para o rosto.",busca:"mint green facial moisturizer tube product photo"},
- {nome:"Sérum facial",cat:"skincare",preco:39.90,desc:"Sérum em frasco com conta-gotas.",busca:"amber glass dropper serum bottle gold cap product"},
- {nome:"Creme facial",cat:"skincare",preco:36.90,desc:"Creme facial para sua rotina diária.",busca:"pink face cream jar rose gold lid product"},
- {nome:"Protetor solar FPS 50",cat:"skincare",preco:42.90,desc:"Lembre-se da proteção solar diária.",busca:"white orange SPF 50 sunscreen tube product"},
- {nome:"Batom",cat:"maquiagem",preco:19.90,desc:"Cor para completar seu visual.",busca:"single rose pink lipstick gold tube product photo"},
- {nome:"Gloss labial",cat:"maquiagem",preco:17.90,desc:"Brilho para os lábios.",busca:"pink lip gloss tube black cap product photo"},
- {nome:"Base líquida",cat:"maquiagem",preco:32.90,desc:"Base para sua rotina de maquiagem.",busca:"beige liquid foundation bottle black cap product"},
- {nome:"Máscara de cílios",cat:"maquiagem",preco:22.90,desc:"Finalize a maquiagem dos olhos.",busca:"black mascara tube and wand cosmetic product"},
- {nome:"Pó compacto",cat:"maquiagem",preco:24.90,desc:"Um item clássico da nécessaire.",busca:"pink compact pressed powder makeup compact product"},
- {nome:"Paleta de sombras",cat:"maquiagem",preco:39.90,desc:"Tons neutros e rosados para combinar.",busca:"open rose pink neutral eyeshadow palette product"},
- {nome:"Máscara facial",cat:"skincare",preco:12.90,desc:"Um momento especial de autocuidado.",busca:"pink facial sheet mask packet skincare product"},
- {nome:"Pincéis de maquiagem",cat:"acessorios",preco:44.90,desc:"Acessórios para aplicar sua maquiagem.",busca:"pink rose gold makeup brushes holder product"},
- {nome:"Esmalte",cat:"unhas",preco:9.90,desc:"Um toque de cor para as unhas.",busca:"burgundy pink nail polish bottle black cap product"},
- {nome:"Corretivo",cat:"maquiagem",preco:21.90,desc:"Mais uma opção para sua nécessaire.",busca:"beige concealer tube black cap makeup product"}
+const products = [
+
+</html>
+const products = [
+  
+  { id: 1, name: "Sérum Facial", category: "skincare", price: 39.90, description: "Sérum hidratante e antioxidante.", image: "data:image/jpeg;base64,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" },
+
 ];
-const grid=document.getElementById("product-grid");
-const carrinho=[];
-const dinheiro=v=>v.toLocaleString("pt-BR",{style:"currency",currency:"BRL"});
-function renderizar(filtro="todos"){
-  grid.innerHTML="";
-  produtos.filter(p=>filtro==="todos"||p.cat===filtro).forEach((p,i)=>{
-    const card=document.createElement("article");card.className="card";
-    const img=document.createElement("img");
-    img.loading="lazy";img.alt=p.nome;
-    img.src="https://loremflickr.com/640/640/cosmetics,skincare?lock="+(i+20);
-    img.onerror=()=>{img.onerror=null;img.src="https://placehold.co/640x640/f8e8ec/70263c?text="+encodeURIComponent(p.nome)};
-    const body=document.createElement("div");body.className="card-body";
-    const tag=document.createElement("span");tag.className="tag";tag.textContent=p.cat==="skincare"?"Skincare":p.cat==="maquiagem"?"Maquiagem":p.cat==="unhas"?"Unhas":"Acessórios";
-    const h=document.createElement("h3");h.textContent=p.nome;
-    const d=document.createElement("p");d.textContent=p.desc;
-    const price=document.createElement("div");price.className="price";price.textContent=dinheiro(p.preco);
-    const btn=document.createElement("button");btn.className="add";btn.textContent="Adicionar ao carrinho";
-    btn.addEventListener("click",()=>{carrinho.push(p);document.getElementById("cart-count").textContent=carrinho.length;btn.textContent="Adicionado ✓";setTimeout(()=>btn.textContent="Adicionar ao carrinho",1200)});
-    body.append(tag,h,d,price,btn);card.append(img,body);grid.append(card);
+
+const cart = {};
+
+const categoryNames = {
+  skincare: "Skincare",
+  maquiagem: "Maquiagem",
+  acessorios: "Acessórios"
+};
+
+function money(value) {
+  return value.toLocaleString("pt-BR", {
+    style: "currency",
+    currency: "BRL"
   });
 }
-document.querySelectorAll(".filter").forEach(b=>b.addEventListener("click",()=>{document.querySelectorAll(".filter").forEach(x=>x.classList.remove("active"));b.classList.add("active");renderizar(b.dataset.filter)}));
-<section id="carrinho">
-  <section class="carrinho">
-    <h2>🛍️ Meu Carrinho</h2>
 
-    <div id="itens-carrinho"></div>
+function renderProducts() {
+  const query = document.getElementById("search")
+    .value.trim().toLocaleLowerCase("pt-BR");
 
-    <h3>Total: <span id="total">R$ 0,00</span></h3>
+  const category = document.getElementById("category").value;
 
-    <button onclick="esvaziarCarrinho()">
-        Esvaziar carrinho
-    </button>
-</section>
+  const filtered = products.filter(p =>
+    p.name.toLocaleLowerCase("pt-BR").includes(query) &&
+    (category === "todos" || p.category === category)
+  );
 
-<script src="carrinho.js"></script>
-  function mostrarCarrinho(){
- if(!carrinho.length){alert("Seu carrinho ainda está vazio. Escolha um produto para começar!");return;}
- const itens=carrinho.map(p=>p.nome+" — "+dinheiro(p.preco)).join("\\n");
- const total=carrinho.reduce((s,p)=>s+p.preco,0);
- alert("Seu carrinho:\\n\\n"+itens+"\\n\\nTotal ilustrativo: "+dinheiro(total)+"\\n\\nEste é um exemplo demonstrativo; o checkout precisa ser conectado para receber pedidos.");
+  const container = document.getElementById("products");
+
+  if (!filtered.length) {
+    container.innerHTML =
+      '<p class="empty">Nenhum produto encontrado.</p>';
+    return;
+  }
+
+  container.innerHTML = filtered.map(p => `
+    <article class="product">
+      <img src="${p.image}" alt="${p.name}">
+      <div class="product-info">
+        <span class="category">
+          ${categoryNames[p.category] || p.category}
+        </span>
+        <h3>${p.name}</h3>
+        <p class="description">${p.description}</p>
+        <p class="price">${money(p.price)}</p>
+        <button class="add" onclick="addToCart(${p.id})">
+          Adicionar ao carrinho
+        </button>
+      </div>
+    </article>
+  `).join("");
 }
-document.getElementById("year").textContent=new Date().getFullYear();
-renderizar();
-</script>
-</body>
-</html>
+
+document.getElementById("search")
+  .addEventListener("input", renderProducts);
+
+document.getElementById("category")
+  .addEventListener("change", renderProducts);
